@@ -1,16 +1,16 @@
 {
-    "version": 2,
-    "name": "ATB-market",
-    "builds": [
+    "version" : 2,
+    "name" : "Full Stack",
+    "builds" : [
         {
-            "src": "./index.js",
-            "use": "@vercel/node"
+            "src" : "./index.js",
+            "use" : "@vercel/node"
         }
     ],
-    "routes": [
+    "routes" : [
         {
-            "src": "/(.*)",
-            "dest": "dist/index.html"
+            "src" : "/(.*)",
+            "dest" : "/"
         }
     ]
 }
