@@ -3,22 +3,22 @@
   "name": "ATB-market",
   "builds": [
     {
-      "src": "dist/**/*",
+      "src": "client/dist/**/*",
       "use": "@vercel/static"
     },
     {
-      "src": "api/**/*.js",
+      "src": "server/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "dest": "/server/index.js"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/client/dist/index.html"
     }
   ]
 }
