@@ -18,10 +18,12 @@ import orderRouter from './routs/orderRouret.js';
 dotenv.config();
 
 const app = express(); 
+
 app.use(cors({
     credentials: true,
     origin: process.env.FRONTEND_URL
 }));
+
 // use json
 app.use(express.json()); 
 // use cookies
@@ -30,8 +32,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 // use helmet for security and difrent domain
 app.use(helmet({ crossOriginResourcePolicy: false }));
-// port
-const port = process.env.PORT || 8080;
+
 
 // user routes
 app.use('/api/user', userRoute);
@@ -50,9 +51,8 @@ app.use('/api/order', orderRouter);
 // upload routes
 app.use('/api/file', uploadRouter)
 
-// listen to port and start server and connect to database
-connectDB().then(() => {
-    app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-    });
-})
+// connect to database
+connectDB()
+
+// Export for Vercel serverless
+export default app;
