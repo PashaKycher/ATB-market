@@ -1,24 +1,16 @@
 {
-  "version": 2,
-  "name": "ATB-market",
-  "builds": [
-    {
-      "src": "client/dist/**/*",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "server/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "/server/index.js"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/dist/index.html"
-    }
-  ]
+    "version": 2,
+    "name": "ATB-market",
+    "builds": [
+        {
+            "src": "./index.js",
+            "use": "@vercel/node"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "dist/index.html"
+        }
+    ]
 }
