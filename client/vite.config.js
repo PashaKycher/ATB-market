@@ -5,14 +5,23 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: 'dist'
+    outDir: "dist",
+    assetsDir: "assets"
   },
   server: {
+    port: 5173,
     open: true,
     proxy: {
-      '/api': 'http://localhost:8080'
-    },
-    port: 3000, // для локалки, необов'язково
-    allowedHosts: ['57e027fe2e08.ngrok-free.app'], // якщо будеш ще через ngrok ганяти
+      "/api": "https://atb-market.vercel.app/" || "http://localhost:8080"
+    }
   }
 })
+
+// server: {
+//     open: true,
+//     proxy: {
+//       '/api': 'http://localhost:8080'
+//     },
+//     port: 3000, // для локалки, необов'язково
+//     allowedHosts: ['57e027fe2e08.ngrok-free.app'], // якщо будеш ще через ngrok ганяти
+//   }
