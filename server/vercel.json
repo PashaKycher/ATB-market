@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "name": "atb-market-server",
   "builds": [
     {
       "src": "index.js",
@@ -10,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/index.js"
+      "dest": "index.js"
     }
   ]
 }
