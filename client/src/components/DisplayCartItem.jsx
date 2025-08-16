@@ -5,7 +5,7 @@ import Context from '../context';
 import DisplayPrice from '../utils/DislayPrice';
 import { FaCaretRight } from "react-icons/fa";
 import AddToCartButton from './AddToCartButton';
-import { useSelector } from 'react-redux'; 
+import { useSelector } from 'react-redux';
 import imageEmpty from '../assets/empty_cart.webp'
 
 const DisplayCartItem = ({ close }) => {
@@ -84,9 +84,22 @@ const DisplayCartItem = ({ close }) => {
                                         <p className='text-green-500'>
                                             Current price: {DisplayPrice(totalPrice)}
                                         </p>
-                                        <p className='font-semibold text-green-500'>
+                                        <p className='font-semibold text-green-500 mb-3'>
                                             Savings: {DisplayPrice(savings)}
                                         </p>
+                                        <div className='py-2'>
+                                            <div className='bg-green-700 text-neutral-100 p-2 sticky rounded bottom-3
+                                                                flex gap-4 justify-between'>
+                                                <div className='p-1 px-2'>
+                                                    {DisplayPrice(totalPrice)}
+                                                </div>
+                                                <Link to={'/checkout'} onClick={close}
+                                                    className='flex items-center gap-1 hover:bg-green-600 rounded p-1 px-2'>
+                                                    Procced
+                                                    <span><FaCaretRight /></span>
+                                                </Link>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </>
@@ -107,24 +120,6 @@ const DisplayCartItem = ({ close }) => {
                         )
                     }
                 </div>
-                {
-                    cartItem[0] && (
-                        <div className='py-2'>
-                            <div className='bg-green-700 text-neutral-100 p-2 sticky rounded bottom-3
-                                    flex gap-4 justify-between'>
-                                <div className='p-1 px-2'>
-                                    {DisplayPrice(totalPrice)}
-                                </div>
-                                <Link to={'/checkout'} onClick={close} 
-                                className='flex items-center gap-1 hover:bg-green-600 rounded p-1 px-2'>
-                                    Procced
-                                    <span><FaCaretRight /></span>
-                                </Link>
-                            </div>
-                        </div>
-                    )
-                }
-
             </div>
         </section>
     )
