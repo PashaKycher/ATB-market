@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "atb-market-server",
+  "name": "atb-market",
   "builds": [
     {
       "src": "index.js",
